@@ -1,0 +1,490 @@
+/* https://developer.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/ */
+.offscreen {
+  clip-path: inset(100%);
+  clip: rect(1px 1px 1px 1px); /* IE 6/7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; /* added line */
+  width: 1px;
+}
+
+.no-selection {
+  user-select: none;
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url('./fonts/Oswald/Oswald-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url('./fonts/Oswald/Oswald-ExtraLight.ttf') format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url('./fonts/Oswald/Oswald-Light.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url('./fonts/Oswald/Oswald-Bold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url('./fonts/Lato/Lato-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url('./fonts/Lato/Lato-Light.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url('./fonts/Lato/Lato-Bold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+body {
+  font-weight: 300;
+  font-family: 'Oswald', sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: lightgrey;
+  position: relative;
+}
+
+header {
+  top: 0;
+  z-index: 2;
+  height: 10vw;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+}
+
+.top-menu {
+  height: 8vw;
+  width: 80%;
+  display: grid;
+  position: absolute;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  color: white;
+  grid-template-columns: 49% 49%;
+  grid-template-areas: "top1 top2";
+}
+
+.opening-date {
+  grid-area: top1;
+  text-align: left;
+}
+
+.my-account {
+  grid-area: top2;
+  text-align: right;
+}
+
+.down-menu {
+  height: 2vw;
+  width: 80%;
+  display: grid;
+  position: absolute;
+  border-top: solid 2px white;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  grid-template-columns: 36% 58% 4%;
+  grid-template-areas: "down1 down2 down3";
+}
+
+.organic-logo img {
+  height: 50px;
+  grid-area: down1;
+  text-align: center;
+}
+
+.main-menu {
+  height: 50px;
+  grid-area: down2;
+}
+
+.main-menu ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.main-menu ul,
+.menu-item a {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-button {
+  font-size: 4rem;
+  margin: 10px;
+  display: none;
+}
+
+.menu-item {
+  height: 100%;
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 0;
+}
+
+.fa-search {
+  color: white;
+  cursor: pointer;
+  position: relative;
+  text-align: right;
+  grid-area: down3;
+  display: block;
+  margin-top: 17px;
+}
+
+.menu-item a:hover {
+  background-color: rgba(94, 237, 71, 0.65);
+  transition: 0.3s;
+}
+
+/* ---------------- slideshow  ----------------- */
+
+.banner-image {
+  width: 100%;
+  margin-top: -50px;
+  filter: brightness(50%);
+}
+
+.banner-logo {
+  position: absolute;
+  top: 15vw;
+  width: 100vw;
+  text-align: center;
+  z-index: 1;
+}
+
+.banner-text {
+  position: absolute;
+  top: 35vw;
+  width: 100vw;
+  text-align: center;
+  color: white;
+  font-size: 35px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  z-index: 1;
+}
+
+.shop-now {
+  position: absolute;
+  top: 43vw;
+  right: calc(50% - 75px);
+  width: 150px;
+  padding: 5px 0;
+  text-align: center;
+  border-radius: 200px;
+  background-color: #5eed47;
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  z-index: 1;
+}
+
+.shop-now:hover {
+  color: white;
+  text-decoration: none;
+  background-color: darkgreen;
+}
+
+h2 {
+  text-align: center;
+  padding: 10px;
+  font-weight: 400;
+}
+
+.intro-text p {
+  text-align: center;
+  margin-left: 25vw;
+  margin-right: 25vw;
+  font-weight: 400;
+}
+
+.boxes {
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  height: 33%;
+}
+
+.box1,
+.box2,
+.box3 {
+  width: 15%;
+  color: green;
+  box-shadow: 0 0 22px -1px rgba(0, 0, 0, 0.75);
+  margin: 2vw;
+  padding: 2vw 2vw;
+  background-color: #e8e8e8;
+  font-weight: 400;
+}
+
+.image-container {
+  height: 20vw;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  margin-top: -150px;
+}
+
+footer {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 100px;
+  font-weight: 400;
+}
+
+@media (max-width: 1000px) {
+  .top-menu {
+    font-size: 14px;
+  }
+
+  .down-menu {
+    height: 80%;
+    margin-top: 70px;
+  }
+
+  .menu-item {
+    height: 50%;
+  }
+
+  .menu-item a {
+    font-size: 14px;
+    padding: 0 1vw;
+  }
+}
+
+@media (max-width: 800px) {
+  .organic-logo img {
+    height: 45px;
+  }
+
+  .banner-text {
+    font-size: 25px;
+  }
+
+  .box1,
+  .box2,
+  .box3 {
+    width: 20%;
+  }
+
+  .image {
+    margin-top: -100px;
+  }
+}
+
+@media (max-width: 650px) {
+  .top-menu {
+    display: grid;
+    grid-template-columns: 45% 45% 10%;
+    grid-template-areas: "top1 top2 top3";
+  }
+
+  .down-menu {
+    display: grid;
+    grid-template-columns: 45% 45% 10%;
+    grid-template-areas: "down1 down2 down2";
+  }
+
+  .fa-search {
+    grid-area: down2;
+  }
+
+  .opening-date {
+    grid-area: top1;
+    text-align: left;
+  }
+
+  .my-account {
+    grid-area: top2;
+    text-align: right;
+  }
+
+  header .main-menu {
+    position: absolute;
+    top: 10px;
+    right: -50%;
+    text-align: center;
+    z-index: -1;
+    width: 25%;
+    display: none;
+  }
+
+  header .main-menu ul {
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100px;
+    margin-left: 15vw;
+    text-align: center;
+    align-items: center;
+  }
+
+  .menu-item a {
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .menu-button {
+    display: grid;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    margin-top: 0;
+    font-size: 30px;
+    margin-left: 0;
+    padding: 0;
+    text-align: right;
+    grid-area: top3;
+  }
+
+  .close-menu {
+    font-size: 30px;
+    color: black;
+    align-self: flex-end;
+    margin-right: -30vw;
+    margin-top: -55px;
+    cursor: pointer;
+    position: relative;
+    text-align: right;
+  }
+
+  .shop-now {
+    top: 50vw;
+  }
+
+  .banner-text {
+    top: 40vw;
+    width: 100vw;
+  }
+
+  .banner-logo {
+    top: 15vw;
+  }
+
+  .banner-image {
+    width: 120%;
+  }
+
+  .box1,
+  .box2,
+  .box3 {
+    width: 20%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 550px) {
+  .boxes {
+    display: block;
+  }
+
+  .box1,
+  .box2,
+  .box3 {
+    width: 35%;
+    font-size: 16px;
+    margin: 20px auto;
+    padding: 25px;
+  }
+}
+
+/* Mobilnézet 375px Iphone X-en */
+@media (max-width: 375px) {
+  .top-menu {
+    grid-template-columns: 60% 30% 10%;
+    width: 80%;
+  }
+
+  .menu-button {
+    font-size: 20px;
+    margin-top: 4px;
+    margin-left: 10px;
+  }
+
+  .shop-now {
+    top: 100vw;
+  }
+
+  .banner-text {
+    top: 65vw;
+    font-size: 35px;
+  }
+
+  .banner-logo {
+    top: 25vw;
+  }
+
+  .banner-image {
+    width: 200%;
+  }
+
+  .box1,
+  .box2,
+  .box3 {
+    width: 45%;
+    font-size: 14px;
+  }
+
+  .image-container {
+    height: 50vw;
+  }
+
+  .image {
+    margin-top: -60px;
+    margin-left: -170px;
+    width: 800px;
+  }
+}
+
+.js-hidden {
+  display: none;
+}
+
+.js-menu-open {
+  right: 50%;
+}
+
+.main-menu.js-show {
+  display: block;
+}
