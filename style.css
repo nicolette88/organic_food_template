@@ -159,14 +159,18 @@ header {
   padding: 0;
 }
 
+.search-button {
+  text-align: right;
+}
+
 .fa-search {
   color: white;
   cursor: pointer;
   position: relative;
-  text-align: right;
   grid-area: down3;
-  display: block;
   margin-top: 17px;
+  display: inline-block;
+  text-decoration: none;
 }
 
 .menu-item a:hover {
@@ -178,7 +182,6 @@ header {
 
 .banner-image {
   width: 100%;
-  margin-top: -50px;
   filter: brightness(50%);
 }
 
@@ -402,9 +405,9 @@ footer {
     top: 15vw;
   }
 
-  .banner-image {
+  /* .banner-image {
     width: 120%;
-  }
+  } */
 
   .box1,
   .box2,
