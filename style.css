@@ -336,7 +336,6 @@ footer {
     margin-top: 20px;
     width: 100px;
     margin-left: 15vw;
-    text-align: center;
     align-items: center;
   }
 
@@ -350,11 +349,8 @@ footer {
     display: grid;
     cursor: pointer;
     position: relative;
-    z-index: 2;
-    margin-top: 0;
     font-size: 30px;
-    margin-left: 0;
-    padding: 0;
+    margin-top: 0;
     text-align: right;
     grid-area: top3;
   }
@@ -362,7 +358,6 @@ footer {
   .close-menu {
     font-size: 30px;
     color: black;
-    align-self: flex-end;
     margin-right: -30vw;
     margin-top: -55px;
     cursor: pointer;
@@ -382,10 +377,6 @@ footer {
   .banner-logo {
     top: 15vw;
   }
-
-  /* .banner-image {
-    width: 120%;
-  } */
 
   .box1,
   .box2,
@@ -411,6 +402,9 @@ footer {
 }
 
 /* Mobilnézet 375px Iphone X-en */
+
+/* A menü oldalra nyílik a buildings-es órai feladat alapján. */
+
 @media (max-width: 375px) {
   .top-menu {
     grid-template-columns: 60% 30% 10%;
@@ -438,6 +432,7 @@ footer {
 
   .banner-image {
     width: 200%;
+    margin-left: -200px;
   }
 
   .box1,
